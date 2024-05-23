@@ -24,7 +24,7 @@ class DetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(food.name),
         foregroundColor: Colors.white,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Color.fromARGB(255, 60, 159, 159),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -36,21 +36,28 @@ class DetailPage extends StatelessWidget {
               height: 300,
               child: FittedBox(
                 fit: BoxFit.contain,
-                child: Image.asset(food.imagePath),
+                child: Image.network(food.imagePath),
               ),
             ),
             const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   'Makanan Khas ${food.origin}',
                   style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.blueGrey),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 60, 159, 159),
+                  ),
                 ),
-                IconButton(onPressed: () {}, icon: Icon(Icons.thumb_up_alt)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
+                    IconButton(onPressed: () {}, icon: Icon(Icons.share)),
+                  ],
+                )
               ],
             ),
             const SizedBox(height: 20),
@@ -77,7 +84,7 @@ class DetailPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(food.name),
         foregroundColor: Colors.white,
-        backgroundColor: Colors.blueGrey,
+        backgroundColor: Color.fromARGB(255, 60, 159, 159),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -94,7 +101,7 @@ class DetailPage extends StatelessWidget {
                     width: 300,
                     child: FittedBox(
                       fit: BoxFit.contain,
-                      child: Image.asset(food.imagePath),
+                      child: Image.network(food.imagePath),
                     ),
                   ),
                   const SizedBox(width: 20),
@@ -112,8 +119,15 @@ class DetailPage extends StatelessWidget {
                                 color: Colors.blueGrey),
                           ),
                           SizedBox(height: 20),
-                          IconButton(
-                              onPressed: () {}, icon: Icon(Icons.thumb_up_alt)),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              IconButton(
+                                  onPressed: () {}, icon: Icon(Icons.favorite)),
+                              IconButton(
+                                  onPressed: () {}, icon: Icon(Icons.share)),
+                            ],
+                          ),
                           SizedBox(height: 30),
                           Text(
                             '${food.deskripsi}',
